@@ -2,104 +2,196 @@
 <html>
     <head>
         <title>My Blog App</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <style>
-            .build {
-                text-align: center;
+            body {
+                font: 400 15px Lato, sans-serif;
+                line-height: 1.8;
+                color: #818181;
             }
-
-            .error, .message {
-                color: red;
-                font-style: italic;
+            h2 {
+                font-size: 24px;
+                text-transform: uppercase;
+                color: #303030;
+                font-weight: 600;
+                margin-bottom: 30px;
             }
-
-            .newpost {
-                margin-left: 50px;
+            h4 {
+                font-size: 19px;
+                line-height: 1.375em;
+                color: #303030;
+                font-weight: 400;
+                margin-bottom: 30px;
+            }  
+            .jumbotron {
+                background-color: #4286f4;
+                color: #fff;
+                padding: 100px 25px;
+                font-family: Montserrat, sans-serif;
             }
-
-            .single {
-                text-align: center;
+            .container-fluid {
+                padding: 60px 50px;
             }
-            .blog {
-                float: left;
+            .bg-grey {
+                background-color: #f6f6f6;
             }
-
-            .logout {
-                float: right;
+            .logo-small {
+                color: #4286f4;
+                font-size: 50px;
             }
-
-            .new {
-                margin-top: 150px;
-                margin-left: 200px;
-
+            .logo {
+                color: #4286f4;
+                font-size: 200px;
             }
-
-            .txtbox {
-                width: 50%;
-                padding: 12px 20px;
-                margin: 8px 0;
-                display: inline-block;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                box-sizing: border-box;
-            }
-
-            input[type=submit] {
-                width: 50%;
-                background-color: gray;
-                color: white;
-                padding: 14px 20px;
-                margin: 8px 0;
+            .thumbnail {
+                padding: 0 0 15px 0;
                 border: none;
-                border-radius: 4px;
-                cursor: pointer;
+                border-radius: 0;
             }
-
-            .textarea {
-                width: 50%;
-                height: 100px;
+            .thumbnail img {
+                width: 100%;
+                height: 100%;
+                margin-bottom: 10px;
             }
-
-            .info {
-                color: green;
+            .carousel-control.right, .carousel-control.left {
+                background-image: none;
+                color: #4286f4;
             }
-
-            /* Newpost CSS */
-            .newpost_form {
-                margin-left: 35%;
+            .carousel-indicators li {
+                border-color: #4286f4;
             }
-
-            .new_blog {
-                margin-left: 50px;
+            .carousel-indicators li.active {
+                background-color: #4286f4;
             }
-
-            .newpost-div {
-                margin-top: 50px;
+            .item h4 {
+                font-size: 19px;
+                line-height: 1.375em;
+                font-weight: 400;
+                font-style: italic;
+                margin: 70px 0;
             }
-
-            /* Signup CSS */
-            .signup_div {
-                margin-top: 50px;
+            .item span {
+                font-style: normal;
             }
-
-            /* Login CSS */
-            .login_form {
-                margin-top: 50px;
-                margin-left: 35%;
+            .panel {
+                border: 1px solid #4286f4; 
+                border-radius:0 !important;
+                transition: box-shadow 0.5s;
             }
-
-
-        </style>
-
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+            .panel:hover {
+                box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+            }
+            .panel-footer .btn:hover {
+                border: 1px solid #4286f4;
+                background-color: #fff !important;
+                color: #4286f4;
+            }
+            .panel-heading {
+                color: #fff !important;
+                background-color: #4286f4 !important;
+                padding: 25px;
+                border-bottom: 1px solid transparent;
+                border-top-left-radius: 0px;
+                border-top-right-radius: 0px;
+                border-bottom-left-radius: 0px;
+                border-bottom-right-radius: 0px;
+            }
+            .panel-footer {
+                background-color: white !important;
+            }
+            .panel-footer h3 {
+                font-size: 32px;
+            }
+            .panel-footer h4 {
+                color: #aaa;
+                font-size: 14px;
+            }
+            .panel-footer .btn {
+                margin: 15px 0;
+                background-color: #4286f4;
+                color: #fff;
+            }
+            .navbar {
+                margin-bottom: 0;
+                background-color: #4286f4;
+                z-index: 9999;
+                border: 0;
+                font-size: 12px !important;
+                line-height: 1.42857143 !important;
+                letter-spacing: 4px;
+                border-radius: 0;
+                font-family: Montserrat, sans-serif;
+            }
+            .navbar li a, .navbar .navbar-brand {
+                color: #fff !important;
+            }
+            .navbar-nav li a:hover, .navbar-nav li.active a {
+                color: #4286f4 !important;
+                background-color: #fff !important;
+            }
+            .navbar-default .navbar-toggle {
+                border-color: transparent;
+                color: #fff !important;
+            }
+            footer .glyphicon {
+                font-size: 20px;
+                margin-bottom: 20px;
+                color: #4286f4;
+            }
+            .slideanim {visibility:hidden;}
+            .slide {
+                animation-name: slide;
+                -webkit-animation-name: slide;
+                animation-duration: 1s;
+                -webkit-animation-duration: 1s;
+                visibility: visible;
+            }
+            @keyframes slide {
+                0% {
+                opacity: 0;
+                transform: translateY(70%);
+                } 
+                100% {
+                opacity: 1;
+                transform: translateY(0%);
+                }
+            }
+            @-webkit-keyframes slide {
+                0% {
+                opacity: 0;
+                -webkit-transform: translateY(70%);
+                } 
+                100% {
+                opacity: 1;
+                -webkit-transform: translateY(0%);
+                }
+            }
+            @media screen and (max-width: 768px) {
+                .col-sm-4 {
+                text-align: center;
+                margin: 25px 0;
+                }
+                .btn-lg {
+                    width: 100%;
+                    margin-bottom: 35px;
+                }
+            }
+            @media screen and (max-width: 480px) {
+                .logo {
+                    font-size: 150px;
+                }
+            }
+      </style>
     </head>
     <body>
+        <div class="container">
+        <div class="page-header" id="banner">
         {% with messages = get_flashed_messages(with_categories=True) %}
         <ul>
         {% for category,message in messages %}
@@ -107,20 +199,33 @@
         {% endfor %}
         </ul>
         {% endwith %}
-        
-        <nav class="navbar navbar-default">
-            <a class="blog" href="/blog">Main Blog Page</a>
-            <a class="newpost" href="/newpost">Add a Blog Entry</a>
-            <a class="signup" href="/signup">Create Account</a>
-            <a class="login" href="/login">Login</a>
-            <a class="logout" href="/logout">Logout</a>
-            <a class="home" href="/">Home</a>
-        </nav>
-
+        <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>                        
+            </button>
+                <a class="navbar-brand" href="/blog">Main Blog Page</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a class="newpost" href="/newpost">Add a Blog Entry</a></li>
+                <li><a class="signup" href="/signup">Create Account</a></li>
+                <li><a class="login" href="/login">Login</a></li>
+                <li><a class="logout" href="/logout">Logout</a></li>
+                <li><a class="home" href="/">Home</a></li>
+            </ul>
+            </div>
+        </div>
+        </div>
         
 
         {% block content %}
 
         {% endblock %}
+        
+        </div>
     </body>
 </html>
