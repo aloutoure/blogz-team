@@ -1,34 +1,8 @@
-from flask import Flask, render_template, redirect, request, session, flash
-from flask_sqlalchemy import SQLAlchemy
+from flask import render_template, redirect, request, session, flash
 
-app = Flask(__name__)
-app.config['DEBUG'] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://blogz:avery2015@localhost:8889/blogz'
-app.config['SQLALCHEMY_ECHO'] = True
-db = SQLAlchemy(app)
-app.secret_key = 'mychildrenaremyworld2017'
-
-class Blog(db.Model):
-
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(50))
-    body = db.Column(db.String(200))
-    owner_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    
-    def __init__(self, title, body, owner):
-        self.title = title
-        self.body = body
-        self.owner = owner
-
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(30))
-    password = db.Column(db.String(16))
-    blogs = db.relationship('Blog', backref='owner')
-
-    def __init__(self, email, password):
-        self.email = email
-        self.password = password
+from app import app, db
+from models import Blog, User
+from hashutils import make_salt, make_pw_hash, check_pw_hash
 
 @app.before_request   # run this function before calling request handler for incoming request
 def require_login():
